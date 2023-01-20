@@ -13,4 +13,6 @@
     <color name="darkergrey">#3C3A3A</color>
     <color name="perfectgrey">#6C6868</color>
     <color name="green">#108E16</color>
+    <color name="lblue">#8595EA</color>
+    <color name="blue">#243387</color>
 </resources>
