@@ -27,7 +27,7 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        etLoginEmail      = findViewById(R.id.edit_text_login_email)
+        etLoginEmail      = findViewById(R.id.event_name)
         etLoginPassword   = findViewById(R.id.edit_text_login_password)
         etLoginEmail.setText("amit@gmail.com")
         etLoginPassword.setText("root")

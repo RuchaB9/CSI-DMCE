@@ -74,5 +74,12 @@ dependencies {
     //For QR code ZXing library
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 
+    //For writing CSV file
+    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.9.0")
+
+    //Apache commons csv
+    implementation 'org.apache.commons:commons-csv:1.5'
+
+
 }
 apply plugin: 'com.google.gms.google-services'
