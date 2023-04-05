@@ -2,25 +2,20 @@ package com.example.csi_dmce.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.csi_dmce.R
+import com.example.csi_dmce.utils.CsvWriter
 import com.example.csi_dmce.auth.CsiAuthWrapper
-import com.example.csi_dmce.database.AttendanceWrapper
 import com.example.csi_dmce.events.EventPageActivity
 import com.example.csi_dmce.profile.Profile
-import kotlinx.coroutines.runBlocking
 
 
 class Dashboard: AppCompatActivity() {
-    private lateinit var btn_registration: Button
-    private lateinit var btn_login: Button
     private lateinit var btn_profile: Button
     private lateinit var btn_events: Button
-    private lateinit var btn_calendar: Button
     private lateinit var btn_logout: Button
-    private lateinit var btn_DB: Button
+    private lateinit var btnCsv: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +25,11 @@ class Dashboard: AppCompatActivity() {
         btn_profile = findViewById(R.id.btn_dashboard_profile)
         btn_profile.setOnClickListener {
             val eventIntent = Intent(this, Profile::class.java)
+            startActivity(eventIntent)
+        }
+        btnCsv = findViewById(R.id.testwrappers)
+        btnCsv.setOnClickListener {
+            val eventIntent = Intent(this, CsvWriter::class.java)
             startActivity(eventIntent)
         }
 

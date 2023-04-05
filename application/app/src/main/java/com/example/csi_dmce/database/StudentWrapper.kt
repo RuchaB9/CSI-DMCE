@@ -9,15 +9,16 @@ import kotlinx.coroutines.tasks.await
 
 data class Student(
     @DocumentId
-    var student_id      : String?         = null,
-    val academic_year   : String?         = null,
-    val department      : String?         = null,
-    val division        : String?         = null,
-    val email           : String?         = null,
-    val name            : String?         = null,
-    val phone_number    : Long?           = null,
-    val roll_number     : Int?            = null,
-    var events          : MutableList<String?>?  = null,
+    var student_id          : String?                   = null,
+    val academic_year       : String?                   = null,
+    val department          : String?                   = null,
+    val division            : String?                   = null,
+    val email               : String?                   = null,
+    val name                : String?                   = null,
+    val phone_number        : Long?                     = null,
+    val email_id_verified   : Boolean?                  = null,
+    val roll_number         : Int?                      = null,
+    var events              : MutableList<String?>?     = null,
 )
 
 class StudentWrapper {
