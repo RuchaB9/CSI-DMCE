@@ -1,5 +1,8 @@
 package com.example.csi_dmce.attendance
 
+import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.csi_dmce.database.Event
 import com.example.csi_dmce.database.EventWrapper
 import com.example.csi_dmce.database.Student
@@ -10,7 +13,7 @@ import java.util.*
 
 class AttendanceExportService {
     companion object {
-        fun writeAttendanceData(eventId: String) {
+        fun writeAttendanceData(ctx: Context, eventId: String) {
             // The data that will be written to the CSV file.
             val csvData: MutableList<List<String>> = mutableListOf()
 
@@ -38,7 +41,7 @@ class AttendanceExportService {
                 "Roll number"
             )
 
-            CsvWriter.writeCsv(csvHeader, Collections.unmodifiableList(csvData))
+            CsvWriter.writeCsv(ctx, csvHeader, Collections.unmodifiableList(csvData))
         }
     }
 }

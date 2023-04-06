@@ -1,10 +1,13 @@
 package com.example.csi_dmce.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.csi_dmce.R
+import com.example.csi_dmce.attendance.AttendanceExportService
 import com.example.csi_dmce.utils.CsvWriter
 import com.example.csi_dmce.auth.CsiAuthWrapper
 import com.example.csi_dmce.events.EventPageActivity
@@ -18,6 +21,7 @@ class Dashboard: AppCompatActivity() {
     private lateinit var btnCsv: Button
 
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -29,8 +33,7 @@ class Dashboard: AppCompatActivity() {
         }
         btnCsv = findViewById(R.id.testwrappers)
         btnCsv.setOnClickListener {
-            val eventIntent = Intent(this, CsvWriter::class.java)
-            startActivity(eventIntent)
+            AttendanceExportService.writeAttendanceData(applicationContext, "CSCT-1678280388")
         }
 
         btn_events = findViewById(R.id.btn_dashboard_events)

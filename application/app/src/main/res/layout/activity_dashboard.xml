@@ -50,13 +50,14 @@
         android:layout_width="227dp"
         android:layout_height="87dp"
         android:layout_marginBottom="232dp"
-        android:text="CSV"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/lato"
+        android:text="CSV"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btn_dashboard_logout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dashboard_events"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
