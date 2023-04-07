@@ -1,26 +1,25 @@
 package com.example.csi_dmce.utils
 
+import android.content.Context
+import android.content.Intent
 import android.os.Build
-import android.os.Bundle
 import android.os.Environment
+import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import com.example.csi_dmce.R
-import com.example.csi_dmce.database.EventWrapper
-import com.example.csi_dmce.database.StudentWrapper
-import kotlinx.coroutines.runBlocking
+import androidx.core.content.ContextCompat.startActivity
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVPrinter
 import java.io.*
 
 class CsvWriter {
     companion object {
-        fun writeCsv(headerData: List<String>, csvData: List<List<String>>) {
+        @RequiresApi(Build.VERSION_CODES.R)
+        fun writeCsv(ctx: Context, headerData: List<String>, csvData: List<List<String>>) {
             val fileObject =  File(Environment.getExternalStorageDirectory(), "attendance.csv")
+            Log.d("CSV_WRITER", fileObject.absolutePath)
             if (fileObject.exists()) {
+                Log.d("CSV_WRITER", "FILE_EXISTS")
                 fileObject.delete()
             }
 
