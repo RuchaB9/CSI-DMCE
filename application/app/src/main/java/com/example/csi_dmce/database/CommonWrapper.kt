@@ -1,5 +1,7 @@
 package com.example.csi_dmce.database
 
+import kotlinx.coroutines.tasks.await
+
 /**
  * Database wrappers which are common to all modules, utility wise.
  */
@@ -27,6 +29,15 @@ class CommonWrapper {
             }
 
             StudentWrapper.updateStudent(student, student)
+            EventWrapper.updateEvent(event, event)
+        }
+
+        suspend fun addRegistrant(event: Event, studentId : String) {
+            if (event.registrants == null) {
+                event.registrants = mutableListOf(studentId)
+            } else {
+                event.registrants!!.add(studentId)
+            }
             EventWrapper.updateEvent(event, event)
         }
     }

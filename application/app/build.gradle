@@ -80,6 +80,9 @@ dependencies {
     //Apache commons csv
     implementation 'org.apache.commons:commons-csv:1.5'
 
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

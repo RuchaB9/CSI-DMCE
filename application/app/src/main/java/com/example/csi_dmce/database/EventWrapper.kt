@@ -18,7 +18,8 @@ data class Event (
     var description : String?       = null,
     var poster_url  : String?       = null,
     var attendees   : MutableList<String>? = null,
-    var uuid        : String?       =null
+    var uuid        : String?       =null,
+    var registrants : MutableList<String>? = null
 )
 
 class EventWrapper {
@@ -86,5 +87,6 @@ class EventWrapper {
                 .await()
             return eventDocument.getString("uuid")
         }
+
     }
 }
