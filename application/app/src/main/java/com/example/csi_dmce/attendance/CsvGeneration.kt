@@ -1,5 +1,5 @@
 package com.example.csi_dmce.attendance
-
+import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
@@ -11,6 +11,8 @@ import androidx.cardview.widget.CardView
 import com.example.csi_dmce.R
 
 class CsvGeneration: AppCompatActivity() {
+
+    val ctx = this
 
     private lateinit var attendanceCard : CardView
     private lateinit var expenseCard : CardView
@@ -38,7 +40,7 @@ class CsvGeneration: AppCompatActivity() {
 
             submitButton.setOnClickListener {
                 val eventForCsv = editText.text.toString()
-                AttendanceExportService.writeAttendanceData(eventForCsv)
+                AttendanceExportService.writeAttendanceData(ctx, eventForCsv)
             }
 
 
@@ -50,7 +52,7 @@ class CsvGeneration: AppCompatActivity() {
 
             submitButton.setOnClickListener {
                 val eventForCsv = editText.text.toString()
-                RegistrantsCsv.writeRegistrantsData(eventForCsv)
+                RegistrantsCsv.writeRegistrantsData(ctx, eventForCsv)
             }
         }
 
