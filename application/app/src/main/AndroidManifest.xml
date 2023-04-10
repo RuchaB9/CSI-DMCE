@@ -65,6 +65,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".attendance.AdminViewQR"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".auth.ForgotPassword"
             android:exported="false">
             <meta-data
@@ -78,6 +85,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".attendance.TemporaryAttendance"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".attendance.CsvGeneration"
             android:exported="true">

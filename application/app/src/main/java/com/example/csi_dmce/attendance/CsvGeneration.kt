@@ -46,6 +46,11 @@ class CsvGeneration: AppCompatActivity() {
 
         }
 
+        expenseCard.setOnClickListener{
+            val expenseID = editText.text.toString()
+            ExpensesCSV.writeExpensesData(ctx, expenseID)
+        }
+
         registrantCard.setOnClickListener{
             popupWindow.showAtLocation(registrantCard, Gravity.CENTER, 0, 0)
 
