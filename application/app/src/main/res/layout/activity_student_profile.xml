@@ -13,15 +13,17 @@
 
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="300dp"
+           android:layout_height="250dp"
            android:padding="20dp">
 
-           <ImageView
-               android:src="@drawable/jk_pic"
-               android:id="@+id/profile_image"
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/image_view_user_avatar"
                android:layout_width="100dp"
                android:layout_height="100dp"
-               android:layout_centerVertical="true" />
+               android:layout_centerVertical="true"
+               android:layout_marginTop="50dp"
+               android:src="@drawable/avatar" />
+
 
            <TextView
                android:id="@+id/text_view_profile_name"
@@ -30,11 +32,11 @@
                android:layout_centerVertical="true"
                android:text="Vedant Prabhu"
                android:textColor="#000"
-               android:layout_marginLeft="10dp"
+               android:layout_marginLeft="20dp"
                android:fontFamily="@font/lato"
                android:includeFontPadding="false"
                android:textStyle="bold"
-               android:layout_toRightOf="@+id/profile_image"
+               android:layout_toRightOf="@+id/image_view_user_avatar"
                android:textSize="20sp" />
 
            <TextView
@@ -42,8 +44,8 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_below="@id/text_view_profile_name"
-               android:layout_marginLeft="10dp"
-               android:layout_toRightOf="@+id/profile_image"
+               android:layout_marginLeft="20dp"
+               android:layout_toRightOf="@+id/image_view_user_avatar"
                android:includeFontPadding="false"
                android:text="Ved@123"
                android:textSize="14sp" />
@@ -138,6 +140,7 @@
            android:padding="20dp">
 
            <com.google.android.material.textfield.TextInputLayout
+               android:clickable="false"
                android:hint="Full Name"
                android:id="@+id/full_name_profile"
                android:layout_height="wrap_content"
@@ -156,6 +159,7 @@
            </com.google.android.material.textfield.TextInputLayout>
 
            <com.google.android.material.textfield.TextInputLayout
+               android:clickable="false"
                android:hint="Class"
                android:layout_margin="5sp"
                android:background="@color/white"
@@ -173,6 +177,7 @@
            </com.google.android.material.textfield.TextInputLayout>
 
            <com.google.android.material.textfield.TextInputLayout
+               android:clickable="false"
                android:hint="Student ID"
                android:layout_margin="5sp"
                android:id="@+id/email_name_profile"
@@ -189,6 +194,27 @@
            </com.google.android.material.textfield.TextInputLayout>
 
            <com.google.android.material.textfield.TextInputLayout
+               android:clickable="false"
+               android:hint="Email Address"
+               android:layout_margin="5sp"
+               android:id="@+id/email"
+               android:fontFamily="@font/lato"
+               android:layout_height="wrap_content"
+               android:layout_width="match_parent">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/edit_text_profile_email"
+                   android:inputType="textEmailAddress"
+                   android:drawablePadding="30dp"
+                   android:text="user@domain.com"
+                   android:background="@color/white"
+                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent" />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+               android:clickable="false"
                android:hint="Contact"
                android:layout_margin="5sp"
                android:id="@+id/phno"

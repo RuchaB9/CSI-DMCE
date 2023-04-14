@@ -6,26 +6,29 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.tasks.await
 
 data class Student(
     @DocumentId
-    var student_id      : String?         = null,
-    val academic_year   : String?         = null,
-    val department      : String?         = null,
-    val division        : String?         = null,
-    val email           : String?         = null,
-    var email_id_verified: Boolean?       = null,
-    val name            : String?         = null,
-    val phone_number    : Long?           = null,
-    val roll_number     : Int?            = null,
-    var events          : MutableList<String?>?  = null,
-    val is_superuser: Boolean? = null,
+    var student_id          : String?                   = null,
+    val academic_year       : String?                   = null,
+    val department          : String?                   = null,
+    val division            : String?                   = null,
+    val email               : String?                   = null,
+    var email_id_verified   : Boolean?                  = null,
+    val name                : String?                   = null,
+    val phone_number        : Long?                     = null,
+    val roll_number         : Int?                      = null,
+    var events              : MutableList<String?>?     = null,
+    val is_superuser        : Boolean?                  = null,
+    val avatar_extension    : String?                   = null,
 )
 
 class StudentWrapper {
     companion object {
         private val studentCollectionRef = FirebaseFirestore.getInstance().collection("users")
+        private val storageRef = FirebaseStorage.getInstance().reference.child("users")
 
         private fun getStudentDocument(studentCollectionRef: CollectionReference, studentId: String): DocumentReference {
             return studentCollectionRef.document(studentId)
@@ -98,6 +101,20 @@ class StudentWrapper {
             val studentObject: Student = studentDocument.toObject(Student::class.java)!!
             studentObject.email_id_verified = emailIdVerified
             studentCollectionRef.document(studentId).set(studentObject)
+        }
+
+        /*
+        Storage stuff below this
+         */
+        fun getStudentAvatarUrl(studentId: String, avatarExtension: String, callback: (String?) -> Unit) {
+            storageRef
+                .child("${studentId}/avatar.${avatarExtension}")
+                .downloadUrl
+                .addOnSuccessListener {
+                    callback(it.toString())
+                }.addOnFailureListener {
+                    callback(null)
+                }
         }
     }
 }

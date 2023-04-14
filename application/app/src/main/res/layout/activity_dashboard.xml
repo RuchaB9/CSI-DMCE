@@ -125,8 +125,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="152dp"
         android:layout_marginRight="60dp"
+        android:layout_marginBottom="120dp"
         android:drawableLeft="@drawable/event_add"
         android:fontFamily="@font/lato"
         android:text="Events"
@@ -134,9 +134,7 @@
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-        app:layout_constraintVertical_bias="0.0"></com.google.android.material.button.MaterialButton>
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"></com.google.android.material.button.MaterialButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
